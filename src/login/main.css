@@ -15,8 +15,8 @@
 
 /* ---------- CSS Custom Properties ---------- */
 :root {
-    --kosmos-blue: #0d4a8c;
-    --kosmos-blue-dark: #0a3d75;
+    --kosmos-blue: #00448b;
+    --kosmos-blue-dark: #00366f;
     --kosmos-blue-light: #1a5fa8;
     --kosmos-bg: #f5f6f8;
     --kosmos-white: #ffffff;
@@ -26,7 +26,7 @@
     --kosmos-border: #e5e7eb;
     --kosmos-input-bg: #ffffff;
     --kosmos-input-border: #d1d5db;
-    --kosmos-input-focus: #0d4a8c;
+    --kosmos-input-focus: #00448b;
     --kosmos-error: #dc2626;
     --kosmos-success: #16a34a;
     --kosmos-warning: #d97706;
@@ -143,7 +143,7 @@ div.kc-logo-text {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(160deg, rgba(255,255,255,0.06) 0%, transparent 50%);
+    background: transparent;
     pointer-events: none;
 }
 
@@ -166,6 +166,12 @@ div.kc-logo-text {
     letter-spacing: 6px;
     text-transform: uppercase;
     color: var(--kosmos-white);
+}
+
+.kosmos-logo-img {
+    display: block;
+    height: 40px;
+    width: auto;
 }
 
 .kosmos-brand-content {
@@ -244,6 +250,12 @@ div.kc-logo-text {
     letter-spacing: 4px;
     text-transform: uppercase;
     color: var(--kosmos-white);
+}
+
+.kosmos-logo-img-mobile {
+    display: block;
+    height: 32px;
+    width: auto;
 }
 
 /* ===================================================================
@@ -716,8 +728,169 @@ div.kc-logo-text {
 }
 
 /* ===================================================================
-   LOCALE SWITCHER (Desktop – inside brand panel)
+   REGISTER FORM (UserProfileFormFields)
    =================================================================== */
+.kosmos-register-form {
+    display: block;
+}
+
+/* Each profile field group */
+.kosmos-register-form .kcFormGroupClass {
+    margin-bottom: 18px;
+}
+
+/* Labels */
+.kosmos-register-form .kcLabelWrapperClass {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--kosmos-text);
+}
+
+.kosmos-register-form .kcLabelClass,
+.kosmos-register-form label {
+    display: inline;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--kosmos-text);
+    margin-bottom: 0;
+}
+
+.kosmos-register-form .kcInputErrorMessageClass {
+    display: block;
+    margin-top: 6px;
+    font-size: 13px;
+    color: var(--kosmos-error);
+    font-weight: 400;
+}
+
+/* Inputs / selects / textareas rendered by UserProfileFormFields */
+.kosmos-register-form input[type="text"],
+.kosmos-register-form input[type="email"],
+.kosmos-register-form input[type="password"],
+.kosmos-register-form input[type="tel"],
+.kosmos-register-form input[type="number"],
+.kosmos-register-form input[type="url"],
+.kosmos-register-form select,
+.kosmos-register-form textarea {
+    display: block;
+    width: 100% !important;
+    height: 48px;
+    padding: 0 14px !important;
+    font-size: 15px !important;
+    font-family: var(--kosmos-font) !important;
+    color: var(--kosmos-text) !important;
+    background: var(--kosmos-card) !important;
+    border: 1px solid var(--kosmos-border) !important;
+    border-radius: var(--kosmos-radius-sm) !important;
+    outline: none !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box !important;
+    margin: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.kosmos-register-form textarea {
+    height: auto;
+    min-height: 96px;
+    padding: 12px 14px !important;
+    line-height: 1.5;
+}
+
+.kosmos-register-form input::placeholder,
+.kosmos-register-form textarea::placeholder {
+    color: #9ca3af;
+    font-weight: 400;
+}
+
+.kosmos-register-form input:focus,
+.kosmos-register-form select:focus,
+.kosmos-register-form textarea:focus {
+    border-color: var(--kosmos-input-focus) !important;
+    box-shadow: 0 0 0 3px rgba(0, 68, 139, 0.12) !important;
+}
+
+.kosmos-register-form input[aria-invalid="true"],
+.kosmos-register-form select[aria-invalid="true"],
+.kosmos-register-form textarea[aria-invalid="true"] {
+    border-color: var(--kosmos-error) !important;
+}
+
+.kosmos-register-form input[aria-invalid="true"]:focus,
+.kosmos-register-form select[aria-invalid="true"]:focus,
+.kosmos-register-form textarea[aria-invalid="true"]:focus {
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12) !important;
+}
+
+/* Password visibility toggle button injected by keycloakify */
+.kosmos-register-form .kcFormPasswordVisibilityButtonClass,
+.kosmos-register-form .pf-c-button.pf-m-control {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none !important;
+    border: none !important;
+    padding: 4px;
+    cursor: pointer;
+    color: var(--kosmos-text-muted) !important;
+}
+
+.kosmos-register-form .kcInputGroup,
+.kosmos-register-form .pf-c-input-group {
+    position: relative;
+    display: block;
+}
+
+/* Terms acceptance */
+.kosmos-terms {
+    margin-bottom: 16px;
+    padding: 14px 16px;
+    background: var(--kosmos-bg);
+    border: 1px solid var(--kosmos-border);
+    border-radius: var(--kosmos-radius-sm);
+    max-height: 160px;
+    overflow-y: auto;
+}
+
+.kosmos-terms-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--kosmos-text);
+    margin-bottom: 6px;
+}
+
+.kosmos-terms-text {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--kosmos-text-muted);
+}
+
+/* Footer: back to login */
+.kosmos-register-footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.kosmos-back-to-login {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--kosmos-blue) !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease;
+}
+
+.kosmos-back-to-login:hover {
+    text-decoration: underline !important;
+    color: var(--kosmos-blue-dark) !important;
+}
+
+
 .kosmos-locale-desktop {
     position: relative;
 }

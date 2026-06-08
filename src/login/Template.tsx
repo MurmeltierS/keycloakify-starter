@@ -57,7 +57,11 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
             <div className="kosmos-brand-panel">
                 <div className="kosmos-brand-top">
                     <div className="kosmos-logo">
-                        <span className="kosmos-logo-text">KOSMOS</span>
+                        <img
+                            className="kosmos-logo-img"
+                            src="https://cdn.shopify.com/s/files/1/0934/5980/8589/files/8e11abfcbd08767bf249a04e5d47a7d6c27b0cc9.png?v=1769611628"
+                            alt="KOSMOS"
+                        />
                     </div>
 
                     {enabledLanguages.length > 1 && (
@@ -121,7 +125,11 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
                 {/* Mobile logo */}
                 <div className="kosmos-mobile-logo">
                     <div className="kosmos-mobile-logo-box">
-                        <span className="kosmos-logo-text-mobile">KOSMOS</span>
+                        <img
+                            className="kosmos-logo-img-mobile"
+                            src="https://cdn.shopify.com/s/files/1/0934/5980/8589/files/8e11abfcbd08767bf249a04e5d47a7d6c27b0cc9.png?v=1769611628"
+                            alt="KOSMOS"
+                        />
                     </div>
                 </div>
 
@@ -170,7 +178,9 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
                                 <>
                                     <h2 className="kosmos-card-title">{headerNode}</h2>
                                     <p className="kosmos-card-subtitle">
-                                        Melden Sie sich mit Ihren Zugangsdaten an
+                                        {kcContext.pageId === "register.ftl"
+                                            ? "Erstellen Sie Ihr Konto, um loszulegen"
+                                            : "Melden Sie sich mit Ihren Zugangsdaten an"}
                                     </p>
                                 </>
                             ) : (
